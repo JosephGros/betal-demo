@@ -1,0 +1,35 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Get a free hosted Postgres database in seconds: `npx create-db`
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model Supplier {
+  id                 Int       @id @default(autoincrement())
+  name               String
+  organizationNumber String    @unique
+  riskStatus         String    @default("UNKNOWN")
+  createdAt          DateTime  @default(now())
+
+  payments           Payment[]
+}
+
+model Payment {
+  id          Int      @id @default(autoincrement())
+  amount      Float
+  currency    String   @default("SEK")
+  reference   String
+  status      String   @default("PENDING")
+  createdAt   DateTime @default(now())
+
+  supplierId  Int
+  supplier    Supplier @relation(fields: [supplierId], references: [id])
+}

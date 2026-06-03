@@ -1,0 +1,29 @@
+<main class="min-h-screen bg-slate-50 text-slate-900">
+  <div class="mx-auto max-w-5xl px-4 py-8">
+    <header class="mb-8 rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+      <p class="text-sm font-medium uppercase tracking-wide text-slate-500">Betalkontroll demo</p>
+
+      <h1 class="mt-2 text-3xl font-bold tracking-tight">Leverantörskontroll</h1>
+
+      <p class="mt-2 max-w-2xl text-slate-600">Angular → GraphQL → Prisma → SQLite</p>
+
+      <nav class="mt-6 flex flex-wrap gap-3">
+        <a
+          routerLink="/suppliers"
+          class="rounded-lg bg-slate-900 px-4 py-2 text-sm font-medium text-white hover:bg-slate-700"
+        >
+          Leverantörer
+        </a>
+
+        <a
+          routerLink="/suppliers/new"
+          class="rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100"
+        >
+          Ny leverantör
+        </a>
+      </nav>
+    </header>
+
+    <router-outlet />
+  </div>
+</main>
